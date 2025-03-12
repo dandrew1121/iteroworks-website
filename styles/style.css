@@ -1,15 +1,13 @@
+/* Reset and Base Styles */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     color: #fff;
-    overflow: hidden; /* Prevent scrollbars */
-    background: #111; /* Dark background */
+    background: #111;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
-.header, nav {
-    z-index: 1000;
-}
-
+/* Gradient Overlay */
 .gradient-overlay {
     position: fixed;
     top: 0;
@@ -20,9 +18,11 @@ body {
     z-index: 1;
 }
 
+/* Header and Navigation */
 header {
     padding: 20px;
     position: relative;
+    z-index: 1000;
 }
 
 nav ul {
@@ -44,44 +44,42 @@ nav a {
 }
 
 nav a:hover {
-    color: #00bfff; /* Light blue hover */
+    color: #00bfff;
 }
 
+/* Main Content */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height for responsiveness */
     position: relative;
     z-index: 2;
+    padding: 20px; /* Add padding for mobile */
+    box-sizing: border-box; /* Include padding in width/height */
 }
 
 .content {
     text-align: center;
+    width: 90%; /* Limit content width on larger screens */
+    max-width: 600px;
 }
 
 .iteroworks {
     font-size: 4em;
     margin-bottom: 10px;
-    text-shadow: 0 0 10px #00bfff; /* Glow effect */
+    text-shadow: 0 0 10px #00bfff;
+    line-height: 1.2; /* Improve line spacing */
 }
 
 .coming-soon {
     font-size: 1.5em;
     color: #ddd;
     font-family: 'Roboto Mono', monospace;
+    line-height: 1.4;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
+/* Pulse Animation */
 .pulse-container {
     display: flex;
     justify-content: center;
@@ -109,5 +107,48 @@ footer {
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+        margin-left: 0;
+    }
+
+    .iteroworks {
+        font-size: 3em;
+    }
+
+    .coming-soon {
+        font-size: 1.2em;
+    }
+
+    .pulse {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .iteroworks {
+        font-size: 2.5em;
     }
 }
